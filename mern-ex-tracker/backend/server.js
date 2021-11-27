@@ -19,6 +19,12 @@ connection.once("open", () => {
   console.log("mongo connection success");
 });
 
+const exercisesRoute = require("./routes/exercises");
+const usersRoute = require("./routes/users");
+
+app.use('/exercises', exercisesRoute);
+app.use('/users', usersRoute);
+
 app.listen(port, () => {
   console.log("Server run on port 5000");
 });
