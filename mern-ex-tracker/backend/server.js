@@ -21,9 +21,11 @@ connection.once("open", () => {
 
 const exercisesRoute = require("./routes/exercises");
 const usersRoute = require("./routes/users");
+const estimationRoute = require("./routes/estimation");
 
-app.use('/exercises', exercisesRoute);
-app.use('/users', usersRoute);
+app.use("/exercises", exercisesRoute);
+app.use("/users", usersRoute);
+app.use("/estimation", estimationRoute);
 
 app.listen(port, () => {
   console.log("Server run on port 5000");
