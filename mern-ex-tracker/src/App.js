@@ -8,7 +8,6 @@ const Navbar = (props) => {
         <li>home</li>
         <li>about</li>
         <li>google</li>
-        <li>facebook</li>
       </ul>
     </div>
   );
