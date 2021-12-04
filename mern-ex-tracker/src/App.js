@@ -10,7 +10,7 @@ import Navbar from "./components/navbar.component";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Navbar />
       <Routes>
         <Route path="/" exact element={<ExerciseList />} />
