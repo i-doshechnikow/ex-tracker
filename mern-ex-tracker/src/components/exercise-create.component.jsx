@@ -21,7 +21,6 @@ export default class CreateExercise extends Component {
     let allUsers = [];
     axios.get("http://localhost:5000/users/").then((res) => {
       res.data.map((userInfo) => allUsers.push(userInfo.username));
-      console.log(allUsers);
 
       this.setState({
         users: allUsers,
@@ -58,13 +57,11 @@ export default class CreateExercise extends Component {
       description: this.state.description,
       duration: this.state.duration,
     };
-    console.log(exercise);
 
     axios
       .post("http://localhost:5000/exercises/add", exercise)
-      .then((res) => console.log(res))
+      .then()
       .catch((err) => console.log(err));
-    // window.location = "/";
   }
 
   render() {

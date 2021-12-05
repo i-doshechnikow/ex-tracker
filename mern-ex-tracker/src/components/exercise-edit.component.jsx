@@ -41,7 +41,6 @@ const EditExercise = (props) => {
     axios
       .post(`http://localhost:5000/exercises/update/${id}`, exercise)
       .then((res) => {
-        console.log(res);
         window.location = "/";
       })
       .catch((err) => console.log(err));

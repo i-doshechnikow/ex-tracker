@@ -42,7 +42,6 @@ export default class ExerciseList extends Component {
       .get("http://localhost:5000/exercises/")
       .then((res) => {
         this.setState({ exercises: res.data });
-        console.log(this.state);
       })
       .catch((err) => console.log(err));
   }
@@ -56,7 +55,6 @@ export default class ExerciseList extends Component {
             (exercise) => exercise._id !== id
           ),
         });
-        console.log(res);
       })
       .catch((err) => console.log(err));
   }
