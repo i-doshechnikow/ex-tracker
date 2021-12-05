@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
@@ -18,11 +18,17 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      users: ["first test user", "second t u"],
-      username: "ilich",
-      description: "test exercise",
-      duration: 1,
+    let allUsers = [];
+    axios.get("http://localhost:5000/users/").then((res) => {
+      res.data.map((userInfo) => allUsers.push(userInfo.username));
+      console.log(allUsers);
+
+      this.setState({
+        users: allUsers,
+        username: allUsers[0],
+        description: "test exercise",
+        duration: 1,
+      });
     });
   }
 
@@ -54,7 +60,11 @@ export default class CreateExercise extends Component {
     };
     console.log(exercise);
 
-    window.location = "/";
+    axios
+      .post("http://localhost:5000/exercises/add", exercise)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    // window.location = "/";
   }
 
   render() {
